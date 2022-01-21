@@ -1,35 +1,50 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
-
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
-
-Certification of Authenticity:
-<include one of the following>
+Mark Fiegel
+hw1.py
+For homework 1 it was just a series of sample programming problems
 I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
+
 """
 
 
 def calc_rec_area():
-    pass
+    length = eval(input("Enter the length: "))
+    width = eval(input("Enter the width: "))
+    area = length * width
+    print("Area =", area)
 
+calc_rec_area()
 
 def calc_volume():
-    pass
+    v_length = eval(input("Enter the length: "))
+    v_width = eval(input("Enter the width: "))
+    v_height = eval(input("Enter the height: "))
+    v_area = v_length * v_width * v_height
+    print("Area =", v_area)
 
+calc_volume()
 
 def shooting_percentage():
-    pass
+    shots = eval(input("How many shots did you take?"))
+    made = eval(input("how many shots did you make?"))
+    shooting_percentage= (made/shots)*100
+    print(shooting_percentage, "%")
 
+shooting_percentage()
 
 def coffee():
-    pass
+    pounds = eval(input("How many pounds do you want?"))
+    coffee = pounds * 10.50
+    shipping = pounds * .86
+    cost = coffee + shipping + 1.5
+    print ("Your total is $",cost)
 
+coffee()
 
 def kilometers_to_miles():
-    pass
+    kilos= eval(input("How many kilometers did you travel   "))
+    miles = kilos * .62137119224
+    miles = round(miles, 2)
+    print("You traveled",miles,"miles!!")
 
-
-if __name__ == '__main__':
-    pass
+kilometers_to_miles()
