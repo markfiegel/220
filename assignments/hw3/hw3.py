@@ -13,8 +13,6 @@ def average():
         average_accum = average_accum + all_grades
     print("average is" , average_accum/grades)
 
-
-
 def tip_jar():
     tip_accum = 0
     for i in range(5):
