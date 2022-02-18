@@ -43,7 +43,7 @@ def thirds():
         x_val.append(y_val[0::3])
     for j in range(sentence_num):
         print(x_val[j])
-thirds()
+
 def word_average():
     sentence = input("enter a sentence: ")
     sentences = sentence.split()
