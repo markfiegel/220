@@ -9,46 +9,45 @@ Certification of Authenticity:
 I certify that this assignment is entirely my own work.
 I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
-
+import math
 
 def cash_converter():
-    pass
-
+    cash = input("enter an integer:  ")
+    cash = float(cash)
+    format_cash = "{:.2f}".format(cash)
+    txt_1 = "that is ${}".format(format_cash)
+    print(txt_1)
 
 def encode():
-    pass
-
+    message = input("enter a message ")
+    key = eval(input("enter a key"))
+    len_message = len(message)
+    listy = ''
+    for i_val in range(len_message):
+        x_val = ord(message[i_val])
+        x_val = int(x_val)
+        y_val = chr(x_val+key)
+        x_str= ''+y_val
+        listy = listy+x_str
+    print(listy)
+encode()
 
 def sphere_area(radius):
-    pass
-
-
+    return 4*(math.pi)*(radius**2)
 def sphere_volume(radius):
-    pass
-
-
+    return (4/3)*(math.pi)*(radius**3)
 def sum_n(number):
-    pass
-
+    x_val = 0
+    for i_val in range(1,number+1):
+        x_val = x_val+i_val
+    return x_val
 
 def sum_n_cubes(number):
-    pass
-
+    x_val = 0
+    for i_val in range(1,number+1):
+        i_val = i_val**3
+        x_val = x_val+i_val
+    return x_val
 
 def encode_better():
-    pass
-
-
-if __name__ == '__main__':
-    # cash_converter()
-    # encode()
-    # res = sphere_area(13)
-    # print(res)
-    # res = sphere_volume(13)
-    # print(res)
-    # res = sum_n(100)
-    # print(res)
-    # res = sum_n_cubes(13)
-    # print(res)
-    # encode_better()
     pass

@@ -13,7 +13,7 @@ def calc_rec_area():
     area = length * width
     print("Area =", area)
 
-calc_rec_area()
+
 
 def calc_volume():
     v_length = eval(input("Enter the length: "))
@@ -22,15 +22,13 @@ def calc_volume():
     v_area = v_length * v_width * v_height
     print("Area =", v_area)
 
-calc_volume()
+
 
 def shooting_percentage():
     shots = eval(input("How many shots did you take?"))
     made = eval(input("how many shots did you make?"))
     shooting_percentage= (made/shots)*100
     print(shooting_percentage, "%")
-
-shooting_percentage()
 
 def coffee():
     pounds = eval(input("How many pounds do you want?"))
@@ -39,7 +37,6 @@ def coffee():
     cost = coffee + shipping + 1.5
     print ("Your total is $",cost)
 
-coffee()
 
 def kilometers_to_miles():
     kilos= eval(input("How many kilometers did you travel   "))
@@ -47,4 +44,3 @@ def kilometers_to_miles():
     miles = round(miles, 2)
     print("You traveled",miles,"miles!!")
 
-kilometers_to_miles()

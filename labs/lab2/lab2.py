@@ -15,7 +15,6 @@ def means():
         rms_accum = rms_accum + x**2
         harm = harm + 1/x
         geo = geo * x
-
     rms = (rms_accum/range_values) ** (1/2)
     rms = round(rms,3)
     harmonic_form = (range_values/harm)
@@ -25,4 +24,5 @@ def means():
     print("Your root mean square is", rms)
     print("Your harmonic mean is", harmonic_form)
     print("Your geometric mean is", geometric_mean)
+    print(harm)
 means()
