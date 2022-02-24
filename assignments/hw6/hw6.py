@@ -1,13 +1,10 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Mark Fiegel
+hw6.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
-
+This was a series of challenges with encrypting and formatting
 Certification of Authenticity:
-<include one of the following>
 I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
 import math
 
@@ -17,7 +14,6 @@ def cash_converter():
     format_cash = "{:.2f}".format(cash)
     txt_1 = "that is ${}".format(format_cash)
     print(txt_1)
-
 def encode():
     message = input("enter a message ")
     key = eval(input("enter a key"))
@@ -30,8 +26,6 @@ def encode():
         x_str= ''+y_val
         listy = listy+x_str
     print(listy)
-encode()
-
 def sphere_area(radius):
     return 4*(math.pi)*(radius**2)
 def sphere_volume(radius):
@@ -41,13 +35,22 @@ def sum_n(number):
     for i_val in range(1,number+1):
         x_val = x_val+i_val
     return x_val
-
 def sum_n_cubes(number):
     x_val = 0
     for i_val in range(1,number+1):
         i_val = i_val**3
         x_val = x_val+i_val
     return x_val
-
 def encode_better():
-    pass
+    message = input("enter a message: ")
+    key = input("enter a key: ")
+    message_range = len(message)
+    key_range = len(key)
+    str_accum = ""
+    for i in range(message_range):
+        mess_encode = ord(message[i])
+        key_encode = ord(key[i%key_range])
+        ord_add = ((mess_encode-65)+(key_encode-65))%58
+        new_encrypt = chr(ord_add+65)
+        str_accum = str_accum + new_encrypt
+    print(str_accum)
