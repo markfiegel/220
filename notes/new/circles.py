@@ -1,37 +1,65 @@
-import graphics
-from graphics import GraphWin, Entry, Point, Text
+from graphics import GraphWin, Circle, Point
 
-def vigenere():
-    win = GraphWin("win", 500,500)
-    code_message = Text(Point(100,150),"Message to code")
-    keyword_message = Text(Point(100,200), "Enter keyword")
-    box_message = Entry(Point(350,150),30)
-    box_keyword = Entry(Point(350,200), 20)
-    box_keyword.draw(win)
-    keyword_message.draw(win)
-    box_message.draw(win)
-    code_message.draw(win)
-    win.getMouse()
-    message_text  = box_message.getText()
-    keyword_text = box_keyword.getText()
-    message_replace= message_text.replace(" ","")
-    keyword_replace = keyword_text.replace(" ","")
-    message_replace = message_replace.upper()
-    keyword_replace = keyword_replace.upper()
-    end_char = ""
-    len_key = len(keyword_replace)
-    for i in range(len(message_replace)):
-        my_ord = ord(message_replace[i])
-        key_ord = ord(keyword_replace[i%len_key])
-        ord_add = ((my_ord-65)+(key_ord-65))%26
-        new_char = chr(ord_add+65)
-        end_char = end_char+new_char
-    result = Text(Point(250,375), "Click to close")
-    resulting_message = Text(Point(250,280),"Resulting Message")
-    resulting_message.draw(win)
-    ending = Text(Point(250,300),end_char)
-    ending.draw(win)
-    result.draw(win)
-    win.getMouse()
+
+def bounceInBox(shape, dx, dy, xLow, xHigh, yLow, yHigh):
+    ''' Animate a shape moving in jumps (dx, dy), bouncing when
+    its center reaches the low and high x and y coordinates.
+    '''
+
+    delay = .005
+    for i in range(600):
+        shape.move(dx, dy)
+        center = shape.getCenter()
+        x = center.getX()
+        y = center.getY()
+        if x < xLow:
+            dx = -dx
+        elif x > xHigh:
+            dx = -dx
+        if y < yLow:
+            dy = -dy
+        elif y > yHigh:
+            dy = -dy
+        time.sleep(delay)
+
+
+def getRandomPoint(xLow, xHigh, yLow, yHigh):
+    '''Return a random Point with coordinates in the range specified.'''
+    x = random.randrange(xLow, xHigh + 1)
+    y = random.randrange(yLow, yHigh + 1)
+    return Point(x, y)
+
+
+def makeDisk(center, radius, win):
+    '''return a red disk that is drawn in win with given center and radius.'''
+    disk = Circle(center, radius)
+    disk.setOutline("red")
+    disk.setFill("red")
+    disk.draw(win)
+    return disk
+
+
+def bounceBall(dx, dy):
+    '''Make a ball bounce around the screen, initially moving by (dx, dy)
+    at each jump.'''
+
+    winWidth = 290
+    winHeight = 290
+    win = GraphWin('Ball Bounce', winWidth, winHeight)
+    win.setCoords(0, 0, winWidth, winHeight)
+
+    radius = 10
+    xLow = radius  # center is separated from the wall by the radius at a bounce
+    xHigh = winWidth - radius
+    yLow = radius
+    yHigh = winHeight - radius
+
+    center = getRandomPoint(xLow, xHigh, yLow, yHigh)
+    ball = makeDisk(center, radius, win)
+
+    bounceInBox(ball, dx, dy, xLow, xHigh, yLow, yHigh)
+
     win.close()
-vigenere()
+
+
+bounceBall(3, 5)
