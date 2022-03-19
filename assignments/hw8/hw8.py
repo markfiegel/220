@@ -14,7 +14,6 @@ def add_ten(nums):
         x_val = nums[i_val] +10
         nums.append(x_val)
     del nums[0:num_len]
-    print (nums)
 def square_each(nums):
     num_len = len(nums)
     for i in range(num_len):
