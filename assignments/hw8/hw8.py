@@ -3,7 +3,6 @@ Mark Fiegel
 hw8.py
 
 I completed a series of functions
-Certification of Authenticity:
 I certify that this assignment is entirely my own work.
 """
 import math
