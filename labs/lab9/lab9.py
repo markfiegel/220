@@ -1,11 +1,12 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+mark fiegel
+lab9.py
 """
 
 
 def build_board():
-    pass
+    board = ['1','2','3','4','5','6','7','8','9']
+    return board
 
 
 def print_board(board):
@@ -37,32 +38,72 @@ def print_board(board):
 
 
 def is_legal(board, position):
-    pass
+    if str(board[position-1]).isnumeric():
+        return True
+    else:
+        return False
 
 
 def fill_spot(board, position, character):
-    pass
-
+    board[position-1] = character.lower()
 
 def winning_game(board):
-    pass
-
-
+    length = len(board)
+    for i in range(0,length,3):
+        if board[i]== board[i+1] == board[i+2]:
+             return True
+    if board[0] == board[4] == board[8]:
+        return True
+    elif board[0] == board[3] == board[6]:
+        return True
+    elif board[1] == board[4] == board[7]:
+        return True
+    elif board[2] == board[5] == board[8]:
+        return True
+    elif board[2] == board[4] == board[6]:
+        return True
+    else:
+        return False
 def game_over(board):
-    pass
-
+    if winning_game(board) or board.count('x') == 5:
+        return True
+    else:
+        return False
 
 def get_winner(board):
-    pass
-
-
+    if game_over(board) and board.count('x')> board.count('y'):
+        return 'x'
+    if game_over(board) and board.count('o') == board.count('x'):
+        return 'o'
+    else:
+        return None
 def play(board):
-    pass
-
-
-def main():
-    pass
-
-
-if __name__ == '__main__':
-    main()
+    print('get 3 in a row to win ')
+    print_board(board)
+    turn_counter = 2
+    keep_playing = True
+    while keep_playing:
+        while not game_over(board):
+            if turn_counter%2 == 0:
+                position = eval(input('x pick a spot '))
+                character = 'x'
+                if is_legal(board,position):
+                    fill_spot(board,position,character)
+                    turn_counter = turn_counter+1
+                    print_board(board)
+            else:
+                position = eval(input('o pick a spot '))
+                if is_legal(board,position):
+                    character = 'o'
+                    fill_spot(board,position,character)
+                    turn_counter = turn_counter+1
+                    print_board(board)
+            if game_over(board):
+                print(get_winner(board),"wins!!")
+            still_playing = input("do you want to play again? ")
+            keep_playing = still_playing[0]
+            if keep_playing == 'y':
+                keep_playing == True
+            else:
+                keep_playing == False
+play(build_board())
