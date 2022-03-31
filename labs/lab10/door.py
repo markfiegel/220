@@ -1,3 +1,9 @@
+"""
+Mark Fiegel
+lab10.py
+I made several classes then integrated them into a function
+I certify that this assignment is entirely my own work.
+"""
 from graphics import GraphWin, Rectangle, Text, Point
 class Door:
     def __init__(self,shape,label):
