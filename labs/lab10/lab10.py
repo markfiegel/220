@@ -13,18 +13,18 @@ def main():
     door = Door(Rectangle(Point(100,175),Point(300,400)),'closed')
     button.draw(win)
     door.draw(win)
-    door.close(win)
+    door.close()
     while button.is_clicked(win.getMouse()) == False:
         if door.is_clicked(win.getMouse()):
             door.is_secret() == False
             if door.is_secret() == True:
                 door.undraw()
-                door.open(win)
+                door.open()
                 door.draw(win)
             if door.is_clicked(win.getMouse()):
                 door.is_secret() == False
                 door.undraw()
-                door.close(win)
+                door.close()
                 door.draw(win)
 main()
 

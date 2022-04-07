@@ -13,7 +13,11 @@ class Button:
         new_lab = self.label
         return new_lab
     def set_label(self):
-        label_d = Text(Point(200,75),self.get_label())
+        x_val = self.shape.getP1()
+        x_val_2 = self.shape.getP2()
+        new_y = x_val.getY() + ((x_val_2.getY() - x_val.getY())/2)
+        new_x = x_val.getX() + ((x_val_2.getX() - x_val.getX())/2)
+        label_d = Text(Point(new_x,new_y),self.get_label())
         return label_d
     def draw(self,win):
         self.shape.draw(win)
@@ -25,10 +29,12 @@ class Button:
     def is_clicked(self,point):
         x_val = point.getX()
         y_val = point.getY()
-        if (x_val<=300 and x_val>=100) and (y_val <=100 and y_val>=50):
+        x_p1 = self.shape.getP1()
+        x_p2 = self.shape.getP2()
+        if (x_val <= x_p2.getX() and x_val >= x_p1.getX()) and (y_val >= x_p1.getY() and y_val <= x_p2.getY()):
             clicked = True
         else:
             clicked = False
         return clicked
     def color_button(self):
-        self.shape.setFill('grey')
+        self.shape.setFill('light blue')
