@@ -37,5 +37,4 @@ def syracuse(num):
     return syracuse_list
 def goldbach(number):
     pass
-f = Face(GraphWin('win',500,500),Point(250,250),100)
-f.wink()
+
