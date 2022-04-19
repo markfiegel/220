@@ -36,7 +36,7 @@ def weighted_average(in_file_name,out_file_name):
             new_file = open(out_file_name,'w')
             new_file.write(lineup)
             new_file.close()
-
 def main():
     weighted_average('grades.txt','avg.txt')
 main()
+#ignore the next few lines, dont know how to get them off github haha
